@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+        <bean id="userDao" class="com.itcast.dao.impl.UserDaoImpl"></bean>
+        <!--使用默认构造方法-->
+        <bean id="userService" class="com.itcast.service.impl.UserServiceImpl" init-method="init" destroy-method="destroy"></bean>
+        <!--使用实例化工厂创建对象-->
+        <!--<bean id="beanInterfaceFactory" class="com.itcast.factory.BeanInterfaceFactory"></bean>-->
+        <!--<bean id="userService" init-method="init" destroy-method="destroy" factory-bean="beanInterfaceFactory" factory-method="getUserService"></bean>-->
+        <!--使用工厂静态方法创建对象-->
+        <!--<bean id="userService" class="com.itcast.factory.BeanInterfaceFactory" factory-method="getUserService" init-method="init" destroy-method="destroy"></bean>-->
+        <!--使用set方式进行依赖注入-->
+        <!--<bean id="userService" class="com.itcast.service.impl.UserServiceImpl">-->
+                <!--<property name="userDao" ref="userDao"></property>-->
+                <!--<property name="age" value="23"></property>-->
+                <!--<property name="birthday" ref="now"></property>-->
+                <!--<property name="name" value="张三"></property>-->
+         <!--</bean>-->
+        <!--<bean id="now" class="java.util.Date"></bean>-->
+        <!--使用有参构造的方式进行依赖注入-->
+        <!--<bean id="userService" class="com.itcast.service.impl.UserServiceImpl">-->
+                <!--<constructor-arg name="age" value="23"></constructor-arg>-->
+                <!--<constructor-arg name="birthday" ref="date"></constructor-arg>-->
+                <!--<constructor-arg name="name" value="李四"></constructor-arg>-->
+                <!--<constructor-arg name="userDao" ref="userDao"></constructor-arg>-->
+                <!--<constructor-arg name="list">-->
+                        <!--<list>-->
+                                <!--<value>aaa</value>-->
+                                <!--<value>bbb</value>-->
+                                <!--<value>ccc</value>-->
+                        <!--</list>-->
+                <!--</constructor-arg>-->
+        <!--</bean>-->
+        <!--<bean id="date" class="java.util.Date" ></bean>-->
+        <!--对基本数据类型、string类型以及复杂类型进行依赖注入-->
+        <!--<bean id="userService" class="com.itcast.service.impl.UserServiceImpl">-->
+                <!--<property name="name" value="王五"></property>-->
+                <!--<property name="birthday" ref="date"></property>-->
+                <!--<property name="age" value="25"></property>-->
+                <!--<property name="userDao" ref="userDao"></property>-->
+                <!--<property name="list">-->
+                        <!--<list><value>aaa</value></list>-->
+                <!--</property>-->
+         <!--</bean>-->
+        <!--<bean id="date" class="java.util.Date" ></bean>-->
+        <!--<bean id="userService" class="com.itcast.service.impl.UserServiceImpl">-->
+                <!--<property name="map">-->
+                        <!--<map>-->
+                                <!--<entry key="ss" value-ref="userService"></entry> -->
+                        <!--</map>-->
+                <!--</property>-->
+        <!--</bean>-->
+</beans>
